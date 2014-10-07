@@ -16,8 +16,8 @@ gpgcheck=1
 gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
 enabled=1
 [elasticsearch-1.0]
-name=Elasticsearch repository for 1.2.x packages
-baseurl=http://packages.elasticsearch.org/elasticsearch/1.2/centos
+name=Elasticsearch repository for 1.3.x packages
+baseurl=http://packages.elasticsearch.org/elasticsearch/1.3/centos
 gpgcheck=1
 gpgkey=http://packages.elasticsearch.org/GPG-KEY-elasticsearch
 enabled=1
@@ -31,7 +31,18 @@ yum -y remove postfix java-1.6.0-openjdk
 yum -y install elasticsearch nginx logstash
 
 
+cat << EOF >> /etc/default/elasticsearch
+ES_HEAP_SIZE=1024m
+MAX_OPEN_FILES=65535
+MAX_LOCKED_MEMORY=unlimited
+EOF
 
+# limits
+echo "elasticsearch - nofile 65535" >> /etc/security/limits.conf
+echo "elasticsearch - memlock unlimited" >> /etc/security/limits.conf
+
+# allow memlock
+echo "bootstrap.mlockall: true" >> /etc/elasticsearch/elasticsearch.yml
 
 # nginx setup
 cat << EOF > /etc/nginx/conf.d/default.conf
