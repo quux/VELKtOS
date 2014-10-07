@@ -26,8 +26,8 @@ EOF
 #yes -n yum update
 
 # node
-yum -y install vim exim  wget java-1.7.0-openjdk
-yum -y remove postfix java-1.6.0-openjdk
+yum -y install  wget java-1.7.0-openjdk
+yum -y remove java-1.6.0-openjdk
 yum -y install elasticsearch nginx logstash
 
 
@@ -76,5 +76,3 @@ mv kibana-3.1.1/ /usr/share/kibana
 
 
 
-# make sure the mail goes to us
-sed -i '/root:/c\root:root@purecobalt.com' /etc/aliases
