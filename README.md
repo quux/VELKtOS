@@ -2,6 +2,8 @@
 
 Vagrant - Elasticsearch - Logstash - Kibana - CentOS
 
+VELKtOS is an open source Vagrant configuration for running an ELK stack locally. 
+
 ## Requirements
 
 - Vagrant
@@ -9,7 +11,10 @@ Vagrant - Elasticsearch - Logstash - Kibana - CentOS
 
 ## How to use
 
-- git clone
-- Edit `Vagrantfile`
-- type `vagrant up`
-- time for tea 
+- `git clone https://github.com/quux/VELKToS.git`
+- Review the `Vagrantfile` and adjust to taste
+- `vagrant up`
+- Time for tea 
+- Point your browser to `http://192.168.192.168/`
+
+You are now ready to head over to the [logstash docs](http://logstash.net/docs/1.4.2/) and write your first input job.
