@@ -1,6 +1,6 @@
-# VELKTos
+# VELKtOS
 
-Vagrant - elasticsearch - logstash - kibana - CentOS
+Vagrant - Elasticsearch - Logstash - Kibana - CentOS
 
 ## Requirements
 
