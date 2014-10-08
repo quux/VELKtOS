@@ -28,7 +28,7 @@ EOF
 # node
 yum -y install vim wget java-1.7.0-openjdk
 yum -y remove java-1.6.0-openjdk
-yum -y install elasticsearch nginx logstash
+yum -y install elasticsearch nginx logstash logstash-contrib
 
 
 cat << EOF >> /etc/default/elasticsearch
