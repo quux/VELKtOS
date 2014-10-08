@@ -71,6 +71,10 @@ rm kibana-3.1.1.tar.gz
 /sbin/chkconfig --levels 345 elasticsearch on
 /sbin/chkconfig --levels 345 nginx on
 
+# fix path
+sed -i '/PATH=/c\PATH=$PATH:$HOME/bin:/opt/logstash/bin' /home/vagrant/.bash_profile
+sed -i '/PATH=/c\PATH=$PATH:$HOME/bin:/opt/logstash/bin' /etc/skel/.bash_profile
+
 # start
 /sbin/service elasticsearch start
 /sbin/service nginx start
