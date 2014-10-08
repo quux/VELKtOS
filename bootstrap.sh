@@ -26,13 +26,13 @@ EOF
 #yes -n yum update
 
 # node
-yum -y install  wget java-1.7.0-openjdk
+yum -y install vim wget java-1.7.0-openjdk
 yum -y remove java-1.6.0-openjdk
 yum -y install elasticsearch nginx logstash
 
 
 cat << EOF >> /etc/default/elasticsearch
-ES_HEAP_SIZE=1024m
+ES_HEAP_SIZE=512m
 MAX_OPEN_FILES=65535
 MAX_LOCKED_MEMORY=unlimited
 EOF
@@ -65,6 +65,7 @@ EOF
 wget https://download.elasticsearch.org/kibana/kibana/kibana-3.1.1.tar.gz
 tar xzf kibana-3.1.1.tar.gz
 mv kibana-3.1.1/ /usr/share/kibana
+rm kibana-3.1.1.tar.gz
 
 # make sure services starts
 /sbin/chkconfig --levels 345 elasticsearch on
